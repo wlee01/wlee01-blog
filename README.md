@@ -74,7 +74,18 @@ HTML = 집짓기
 CSS = 스타일 
 Javascript = 동적 역할 
 
+텍스트와 구조 태그 
+  <h> = header 
+  <br> = 한 줄 띄어쓰기 
+  <li> = 리스트 
 
+주요 시맨틱 태그:
+<header>: 페이지 또는 섹션의 헤더
+<nav>: 내비게이션 메뉴
+<main>: 주요 콘텐츠 영역
+<article>: 독립적인 콘텐츠
+<section>: 관련된 콘텐츠 그룹
+<footer>: 페이지 또는 섹션의 푸터
 
 
 
