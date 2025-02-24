@@ -98,8 +98,24 @@ JavaScript 기본 함수 / 구조에 대해 배움
 자바 스크립트가 조금씩 익숙해지고있어 
 다음 주에 계속 
 
+02/24/2024
+Today was a good day 
 
+JavaScript에는 기본적으로 내장된 고차 함수가 있다. 그중에서 배열 메서드들 중 일부가 대표적인 고차 함수에 해당한다. 이번 콘텐츠에서는, 배열 메서드 중 하나인 filter를 학습했다. 
 
+배열의 filter 메서드는, 모든 배열의 요소 중에서 특정 조건을 만족하는 요소를 걸러내는 메서드입니다. 예를 들어 number 타입을 요소로 갖는 배열에서 짝수만을 걸러내거나, 18 보다 작은 수만을 걸러낸다. string 타입을 요소로 갖는 배열에서, 길이가 10 이하인 문자열만 걸러내거나, 'korea' 같은 특정 문자열만 걸러낼 수도 있다.
+
+// 아래 코드에서 '짝수'와 '길이 5 이하'는 문법 오류(syntax error)에 해당한다. 
+// 의미만 이해해도 충분합니다.
+let arr = [1, 2, 3, 4];
+let output = arr.filter(짝수);
+console.log(output); // ->> [2, 4]
+
+arr = ['hello', 'rocket', 'boost', 'happy', 'hacking'];
+output = arr.filter(길이 5 이하)
+console.log(output); // ->> ['hello', 'boost', 'happy']
+
+GG, LFG, Good game.
 
 
 
