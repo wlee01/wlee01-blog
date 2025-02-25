@@ -118,6 +118,11 @@ console.log(output); // ->> ['hello', 'boost', 'happy']
 GG, LFG, Good game.
 
 
+02/25/2024 
+Had a good focus 
+- Bee, Grub, Honey Bee 등 기타 파일을 실행함을 통해
+
+1. 적용된 함수, 값을 불러내는 것 (extends)에 대해 배움
 
 
 
