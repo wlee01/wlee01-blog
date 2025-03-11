@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wlee01-blog/static/css/main.592524d0.css",
+    "main.js": "/wlee01-blog/static/js/main.e9b7fb2b.js",
+    "static/js/453.ed3810f9.chunk.js": "/wlee01-blog/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/wlee01-blog/index.html",
+    "main.592524d0.css.map": "/wlee01-blog/static/css/main.592524d0.css.map",
+    "main.e9b7fb2b.js.map": "/wlee01-blog/static/js/main.e9b7fb2b.js.map",
+    "453.ed3810f9.chunk.js.map": "/wlee01-blog/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.592524d0.css",
+    "static/js/main.e9b7fb2b.js"
+  ]
+}
