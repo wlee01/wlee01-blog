@@ -1,0 +1,35 @@
+.what-i-learned-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f4f8;
+    padding: 50px 20px;
+}
+
+.what-i-learned-section {
+    max-width: 800px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+}
+
+/* Headings */
+.what-i-learned-section h1 {
+    font-size: 28px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Paragraph Styling */
+.what-i-learned-section p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 500;
+    padding: 0 15px;
+}

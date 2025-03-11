@@ -1,0 +1,94 @@
+/* 🎨 General About Me Container */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #e3e7ed);
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+    /* Ensures clouds don't overflow */
+}
+
+/* 🌟 About Section */
+.about-section {
+    max-width: 800px;
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ☁️ Floating Cloud Animation */
+.cloud {
+    position: absolute;
+    opacity: 0.7;
+    animation: moveClouds linear infinite;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.2));
+    /* Adds depth */
+}
+
+/* 🎲 Randomized Cloud Positions & Sizes */
+.cloud-1 {
+    top: 5%;
+    left: -200px;
+    width: 120px;
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.cloud-2 {
+    top: 20%;
+    left: -250px;
+    width: 150px;
+    animation-duration: 22s;
+    animation-delay: 4s;
+}
+
+.cloud-3 {
+    top: 40%;
+    left: -300px;
+    width: 180px;
+    animation-duration: 25s;
+    animation-delay: 1s;
+}
+
+.cloud-4 {
+    top: 60%;
+    left: -350px;
+    width: 140px;
+    animation-duration: 28s;
+    animation-delay: 3s;
+}
+
+.cloud-5 {
+    top: 80%;
+    left: -400px;
+    width: 160px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+/* ☁️ Keyframes for Moving Clouds */
+@keyframes moveClouds {
+    from {
+        transform: translateX(-150%) translateY(5px);
+    }
+
+    to {
+        transform: translateX(120vw) translateY(-5px);
+    }
+}
+
+/* 🔄 Responsive Adjustments */
+@media (max-width: 768px) {
+    .cloud {
+        width: 100px;
+        opacity: 0.6;
+    }
+}
