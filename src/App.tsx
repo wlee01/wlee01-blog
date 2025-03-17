@@ -7,6 +7,8 @@ import WhatILearned from "./WhatILearned";
 import FuturePlans from "./FuturePlans";
 import EthereumVsSolana from "./EthereumVsSolana";
 import Home from "./Home";
+import TokenEconomyCompound from "./TokenEconomyCompound";
+import Wallet from "./Wallet"; // Default import - CORRECT
 
 function App() {
   const bitcoins = useMemo(() => {
@@ -21,14 +23,16 @@ function App() {
   return (
     <Router>
       <div className="layout-container">
-        <Sidebar /> {/* ✅ Sidebar is now part of the main layout */}
+        <Sidebar />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home bitcoins={bitcoins} />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/learned" element={<WhatILearned />} />
             <Route path="/future" element={<FuturePlans />} />
-            <Route path="/ethereum-vs-solana" element={<EthereumVsSolana />} /> {/* ✅ New Route */}
+            <Route path="/ethereum-vs-solana" element={<EthereumVsSolana />} />
+            <Route path="/token-economy" element={<TokenEconomyCompound />} />
+            <Route path="/wallet" element={<Wallet />} /> {/*  ✅ Fixed */}
           </Routes>
         </div>
       </div>

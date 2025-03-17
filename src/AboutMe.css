@@ -1,94 +1,125 @@
-/* 🎨 General About Me Container */
+/* Container for about page */
 .about-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa, #e3e7ed);
-    padding: 50px 20px;
     position: relative;
     overflow: hidden;
-    /* Ensures clouds don't overflow */
-}
-
-/* 🌟 About Section */
-.about-section {
+    /* to hide raindrops if they go outside */
+    width: 80%;
     max-width: 800px;
-    background: white;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.8;
-    transition: all 0.3s ease-in-out;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* Side padding for rain area (match sideRainArea=50 in JS) */
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-/* ☁️ Floating Cloud Animation */
+/* --- Raindrop styles (bigger & more visible) --- */
+.raindrop {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    background: rgba(0, 174, 255, 0.9);
+    /* bright blue with slight transparency */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+
+    /* Default animation (JS can override duration) */
+    animation: drop 2s linear forwards;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(800px);
+        opacity: 0;
+    }
+}
+
+/* AboutMe Section Styles */
+.about-section {
+    position: relative;
+    z-index: 1;
+    /* Ensure content is above raindrops */
+}
+
+.about-title {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Optimized Section Titles */
+.orange-text {
+    color: orange;
+}
+
+/* Optimized List Styles */
+.orange-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.orange-list li:before {
+    content: "🔥";
+    margin-right: 5px;
+}
+
+/* Cloud Styles */
 .cloud {
     position: absolute;
-    opacity: 0.7;
-    animation: moveClouds linear infinite;
-    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.2));
-    /* Adds depth */
+    /* General styles for all clouds */
 }
 
-/* 🎲 Randomized Cloud Positions & Sizes */
 .cloud-1 {
-    top: 5%;
-    left: -200px;
-    width: 120px;
-    animation-duration: 18s;
-    animation-delay: 2s;
+    top: 10%;
+    left: 10%;
+    animation: float 10s infinite linear;
 }
 
 .cloud-2 {
     top: 20%;
-    left: -250px;
-    width: 150px;
-    animation-duration: 22s;
-    animation-delay: 4s;
+    right: 15%;
+    animation: float 12s infinite linear reverse;
 }
 
 .cloud-3 {
-    top: 40%;
-    left: -300px;
-    width: 180px;
-    animation-duration: 25s;
-    animation-delay: 1s;
+    top: 30%;
+    left: 25%;
+    animation: float 15s infinite linear;
 }
 
 .cloud-4 {
-    top: 60%;
-    left: -350px;
-    width: 140px;
-    animation-duration: 28s;
-    animation-delay: 3s;
+    top: 40%;
+    right: 20%;
+    animation: float 13s infinite linear reverse;
 }
 
 .cloud-5 {
-    top: 80%;
-    left: -400px;
-    width: 160px;
-    animation-duration: 30s;
-    animation-delay: 5s;
+    top: 50%;
+    left: 15%;
+    animation: float 11s infinite linear;
 }
 
-/* ☁️ Keyframes for Moving Clouds */
-@keyframes moveClouds {
-    from {
-        transform: translateX(-150%) translateY(5px);
+@keyframes float {
+    0% {
+        transform: translateX(0);
     }
 
-    to {
-        transform: translateX(120vw) translateY(-5px);
+    50% {
+        transform: translateX(20px);
     }
-}
 
-/* 🔄 Responsive Adjustments */
-@media (max-width: 768px) {
-    .cloud {
-        width: 100px;
-        opacity: 0.6;
+    100% {
+        transform: translateX(0);
     }
 }

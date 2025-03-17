@@ -1,0 +1,556 @@
+.wallet-container {
+    background-color: #1c1c1c;
+    padding: 25px;
+    border-radius: 16px;
+    color: #ffffff;
+    font-family: "Poppins", "Inter", sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0px 0px 20px rgba(255, 140, 0, 0.8);
+    position: relative;
+}
+
+/* Wallet Title Styles with Enhanced Glow Effect */
+.wallet-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff8c00;
+    text-shadow:
+        0 0 10px rgba(255, 140, 0, 0.8),
+        0 0 20px rgba(255, 140, 0, 0.5),
+        0 0 30px rgba(255, 140, 0, 0.3);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.wallet-title:hover {
+    transform: scale(1.05);
+    color: #ffb347;
+    cursor: pointer;
+}
+
+/* Loading indicator */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #ff8c00;
+    font-style: italic;
+}
+
+.loading::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 3px solid transparent;
+    border-top-color: #ff8c00;
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error message */
+.error-message {
+    background-color: rgba(255, 77, 77, 0.2);
+    border-left: 4px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Network warning */
+.network-warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    border-left: 4px solid #ffc107;
+    color: #ffc107;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Buttons */
+.create-wallet-btn,
+.balance-btn,
+.send-btn,
+.copy-address-btn,
+.tab-button,
+.stake-btn,
+.unstake-btn,
+.claim-btn,
+.import-btn,
+.watch-btn {
+    background-color: #ff8c00;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.create-wallet-btn:hover,
+.balance-btn:hover,
+.send-btn:hover,
+.copy-address-btn:hover,
+.tab-button:hover,
+.stake-btn:hover,
+.unstake-btn:hover,
+.claim-btn:hover,
+.import-btn:hover,
+.watch-btn:hover {
+    background-color: #ffa726;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-wallet-btn:active,
+.balance-btn:active,
+.send-btn:active,
+.copy-address-btn:active,
+.tab-button:active,
+.stake-btn:active,
+.unstake-btn:active,
+.claim-btn:active,
+.import-btn:active,
+.watch-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Wallet actions container */
+.wallet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.wallet-actions button {
+    flex: 1;
+    margin: 5px;
+    min-width: 150px;
+}
+
+/* Wallet info container */
+.wallet-info {
+    background: #2a2a2a;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+}
+
+/* Wallet Address styles */
+.wallet-address-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.wallet-address {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ff8c00;
+    word-break: break-all;
+    padding: 15px;
+    border: 2px solid #ff8c00;
+    border-radius: 8px;
+    background: #222;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wallet-address strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.wallet-address span {
+    font-family: monospace;
+    letter-spacing: 0;
+}
+
+/* Copy button styles */
+.copy-address-btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-address-btn:hover {
+    background-color: #555;
+}
+
+/* Success message */
+.copy-success {
+    color: #4caf50;
+    font-size: 14px;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Balance display */
+.wallet-balance {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a5d6a7;
+    padding: 15px;
+    background: #333;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Input fields */
+.send-container {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.send-container h3 {
+    color: #ff8c00;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ff8c00;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #444;
+    color: white;
+    transition: all 0.3s;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    border-color: #ffa726;
+    box-shadow: 0 0 8px rgba(255, 167, 38, 0.4);
+}
+
+/* Tabs */
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.tab-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    max-width: 180px;
+    font-weight: 500;
+}
+
+.tab-button.active {
+    background-color: #ff8c00;
+    color: #000;
+    font-weight: 600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Asset Selection */
+.asset-selection {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.asset-display {
+    margin-top: 20px;
+}
+
+.asset-display h3 {
+    color: #ff8c00;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Token list */
+.tokens-container {
+    margin-top: 20px;
+}
+
+.asset-list {
+    list-style: none;
+    padding: 0;
+}
+
+.token-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s;
+}
+
+.token-item:hover {
+    background-color: #3a3a3a;
+}
+
+.token-item:last-child {
+    border-bottom: none;
+}
+
+.token-info {
+    display: flex;
+    align-items: center;
+}
+
+.token-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+.token-symbol {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.token-balance {
+    font-weight: 600;
+    font-size: 18px;
+    color: #a5d6a7;
+}
+
+/* NFT grid */
+.nfts-container {
+    margin-top: 20px;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.nft-item {
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.nft-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nft-item img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.nft-name {
+    padding: 10px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+}
+
+.nft-id {
+    padding: 0 10px 10px;
+    margin: 0;
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Transaction history */
+.transaction-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.transaction-container h3 {
+    color: #ff8c00;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.transaction-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tx-item {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.tx-item:hover {
+    background-color: #3a3a3a;
+}
+
+.tx-item:last-child {
+    border-bottom: none;
+}
+
+.tx-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.tx-icon.sent {
+    background-color: rgba(255, 77, 77, 0.2);
+    color: #ff4d4d;
+}
+
+.tx-icon.received {
+    background-color: rgba(77, 255, 136, 0.2);
+    color: #4dff88;
+}
+
+.tx-details {
+    flex: 1;
+}
+
+.tx-type {
+    font-weight: 600;
+    margin: 0;
+}
+
+.tx-type.sent {
+    color: #ff4d4d;
+}
+
+.tx-type.received {
+    color: #4dff88;
+}
+
+.tx-address,
+.tx-time {
+    font-size: 12px;
+    color: #ccc;
+    margin: 5px 0 0;
+}
+
+.tx-amount {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.tx-amount.sent {
+    color: #ff4d4d;
+}
+
+.tx-amount.received {
+    color: #4dff88;
+}
+
+/* Staking styles */
+.staking-container {
+    margin-top: 20px;
+}
+
+.staking-container h3 {
+    color: #ff8c00;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.staking-info {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.staking-info p {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background: #444;
+}
